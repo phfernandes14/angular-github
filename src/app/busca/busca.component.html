@@ -1,1 +1,7 @@
-<p>busca works!</p>
+<div class="container mt-5 bg-light">
+    <br>
+    <h1 class="mt-5">Encontre um perfil do Github</h1>
+    <input class="mt-5" placeholder="Usuário do Github" type="text" (input)="user = $event.target.value">
+    <br>
+    <button class="btn btn-primary mt-5 mb-5" type="submit" (click)="busca()">Encontrar</button>
+</div>

@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuscaComponent implements OnInit {
 
+  user:string = '';
+
+
+  busca(){
+    console.log(this.user)
+  }
+
   constructor() { }
 
   ngOnInit(): void {
