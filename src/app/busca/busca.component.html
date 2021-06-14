@@ -1,7 +1,42 @@
-<div class="container mt-5 bg-light">
+<div class="container mt-5 bg-light rounded">
     <br>
     <h1 class="mt-5">Encontre um perfil do Github</h1>
     <input class="mt-5" placeholder="Usuário do Github" type="text" (input)="user = $event.target.value">
     <br>
     <button class="btn btn-primary mt-5 mb-5" type="submit" (click)="busca()">Encontrar</button>
+</div>
+
+<div *ngIf="perfil$ | async perfil">
+    <div class="container bg-light mt-5 rounded">
+        <div class="row">
+            <div class="col-4">
+              <div class="list-group" id="list-tab" role="tablist">
+                <img src={{pessoa.avatar_url}} alt="...">
+                <a class="btn btn-primary text-white" type="submit" href="{{pessoa.html_url}}">Ver Perfil</a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content mt-3" id="nav-tabContent">
+                <p class="btn btn-white shadow">
+                  Repositórios : {{pessoa.public_repos}}
+                </p>
+                <p class="btn btn-white shadow">
+                  Seguidores : {{pessoa.followers}}
+                </p>
+                <p class="btn btn-white shadow">
+                  Seguindo : {{pessoa.following}}
+                </p>
+                <ul class="list-group shadow">
+                    <li class="list-group-item"><h4>Informações</h4></li>
+                    <li class="list-group-item">Nome: {{pessoa.name}}</li>
+                    <li class="list-group-item">Bio: {{pessoa.bio}}</li>
+                    <li class="list-group-item">Empresa: {{pessoa.company}}</li>
+                    <li class="list-group-item ">Blog/Website: {{pessoa.blog}}</li>
+                    <li class="list-group-item">Localidade: {{pessoa.location}}</li>
+                    <li class="list-group-item">Membro Desde: {{pessoa.created_at}} </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+    </div>
 </div>

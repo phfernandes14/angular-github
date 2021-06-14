@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { Perfils } from '../perfil';
+
 
 @Component({
   selector: 'app-busca',
@@ -9,13 +14,20 @@ export class BuscaComponent implements OnInit {
 
   user:string = '';
 
+  public perfil$:Observable<any>
+  public pessoa:any
 
   busca(){
-    console.log(this.user)
+    this.perfil$ = this.http.get('https://api.github.com/users/'+this.user)
+    this.http.get<Perfils>('https://api.github.com/users/'+this.user).subscribe((data)=>{
+    console.log(data)  
+    this.pessoa = data
+    },(error)=>{alert("Usuário não encontrado")}
+    ); 
+  
   }
-
-  constructor() { }
-
+  
+  constructor(private http: HttpClient) { }
   ngOnInit(): void {
   }
 
