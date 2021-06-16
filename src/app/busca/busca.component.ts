@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { Perfils } from '../perfil';
-
-
 @Component({
   selector: 'app-busca',
   templateUrl: './busca.component.html',
@@ -22,7 +19,12 @@ export class BuscaComponent implements OnInit {
     this.http.get<Perfils>('https://api.github.com/users/'+this.user).subscribe((data)=>{
     console.log(data)  
     this.pessoa = data
-    },(error)=>{alert("Usuário não encontrado")}
+    },(error)=>{
+      if(this.user == ""){
+        alert("Por favor, insira um usuário abaixo !")
+      }else alert("Usuário não encontrado !!")
+      
+  }
     ); 
   
   }

@@ -1,42 +1,42 @@
-<div class="container mt-5 bg-light rounded">
+<div class="container main mt-5 bg-light shadow ">
     <br>
-    <h1 class="mt-5">Encontre um perfil do Github</h1>
-    <input class="mt-5" placeholder="Usuário do Github" type="text" (input)="user = $event.target.value">
-    <br>
-    <button class="btn btn-primary mt-5 mb-5" type="submit" (click)="busca()">Encontrar</button>
+    <h1 class="mt-5  display-4">Encontre um perfil do Github</h1>
+    <input class="mt-5 form-control" placeholder="Insira um Usuário aqui ..." type="text" (input)="user = $event.target.value">
+    <button class="btn btn-outline-success mt-5 mb-5" type="submit" (click)="busca()"><i class="fas fa-search"></i> Encontrar</button>
 </div>
 
 <div *ngIf="perfil$ | async perfil">
-    <div class="container bg-light mt-5 rounded">
+    <div class="container main bg-light mt-5 shadow">
         <div class="row">
             <div class="col-4">
               <div class="list-group" id="list-tab" role="tablist">
                 <img src={{pessoa.avatar_url}} alt="...">
-                <a class="btn btn-primary text-white" type="submit" href="{{pessoa.html_url}}">Ver Perfil</a>
+                <a class="btn btn-primary text-white" type="submit" href="{{pessoa.html_url}}"><i class="fas fa-external-link-alt"></i> Ver Perfil</a>
               </div>
             </div>
             <div class="col-8">
               <div class="tab-content mt-3" id="nav-tabContent">
-                <p class="btn btn-white shadow">
-                  Repositórios : {{pessoa.public_repos}}
+                <p class="btn btn-white shadow-lg">
+                  Repositórios : <span >{{pessoa.public_repos}}</span>
                 </p>
                 <p class="btn btn-white shadow">
-                  Seguidores : {{pessoa.followers}}
+                  Seguidores :  <span>{{pessoa.followers}}</span>
                 </p>
                 <p class="btn btn-white shadow">
-                  Seguindo : {{pessoa.following}}
+                  Seguindo : <span>{{pessoa.following}}</span>
                 </p>
                 <ul class="list-group shadow">
                     <li class="list-group-item"><h4>Informações</h4></li>
-                    <li class="list-group-item">Nome: {{pessoa.name}}</li>
-                    <li class="list-group-item">Bio: {{pessoa.bio}}</li>
-                    <li class="list-group-item">Empresa: {{pessoa.company}}</li>
-                    <li class="list-group-item ">Blog/Website: {{pessoa.blog}}</li>
-                    <li class="list-group-item">Localidade: {{pessoa.location}}</li>
-                    <li class="list-group-item">Membro Desde: {{pessoa.created_at}} </li>
+                    <li class="list-group-item"><i class="fas fa-user"></i> Nome: {{pessoa.name}}</li>
+                    <li class="list-group-item"><i class="fas fa-signature"></i> Bio: {{pessoa.bio}}</li>
+                    <li class="list-group-item"><i class="fas fa-building"></i> Empresa: {{pessoa.company}}</li>
+                    <li class="list-group-item"><i class="fab fa-blogger"></i> Blog/Website: {{pessoa.blog}}</li>
+                    <li class="list-group-item"><i class="fas fa-thumbtack"></i> Localidade: {{pessoa.location}}</li>
+                    <li class="list-group-item"> <i class="fas fa-calendar-day"></i> Membro Desde: {{pessoa.created_at}} </li>
                   </ul>
               </div>
             </div>
           </div>
     </div>
 </div>
+
